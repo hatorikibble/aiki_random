@@ -20,7 +20,8 @@ func get_technique() string {
 	content, err := os.ReadFile("techniques.txt")
 	check(err)
 	techniqueSlice := strings.Split(string(content), "\n")
-	randomIndex := rand.Intn(len(techniqueSlice))
+	randomIndex := rand.Intn(len(techniqueSlice) - 1)
+	slog.Debug("Index:", "randomIndex", randomIndex)
 	pick := techniqueSlice[randomIndex]
 	return pick
 }
